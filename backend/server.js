@@ -13,7 +13,7 @@ import cookieParser from "cookie-parser";
 dotenv.config()
 
 const app = express();
-const __dirname = path.resolve()
+const __dirname = path.resolve();
 const PORT = process.env.PORT || 5000
 
 app.use(express.json({ limit: "10mb" })) // parse the body of the request
@@ -25,14 +25,12 @@ app.use('/api/cart', cartRoutes)
 app.use('/api/coupons', couponRoutes)
 app.use('/api/payments', paymentRoutes)
 
-if(process.env.NODE_ENV === "production") {
+if(process.env.NODE_ENV !== "development") {
     app.use(express.static(path.join(__dirname, "/frontend/dist")))
     app.get("*", (req, res)=>{
         res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
     })
 }
-
-
 
 app.listen(PORT, ()=>{
     console.log(`Server running in ${process.env.NODE_ENV}mode on port ${PORT}`)
