@@ -62,8 +62,8 @@ export const createCheckoutSession = async(req, res) =>{
 
         const session = await stripe.checkout.sessions.create({
             mode: "payment",
-            cancel_url: `${process.env.CLIENT_URL}/purchase-cancel`,
-            success_url: `${process.env.CLIENT_URL}/purchase-success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.APP_URL}/purchase-cancel`,
+            success_url: `${process.env.APP_URL}/purchase-success?session_id={CHECKOUT_SESSION_ID}`,
             payment_method_types: ["card"],
             discounts: couponCode ? (
                 [

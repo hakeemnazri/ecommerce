@@ -6,8 +6,10 @@ import productRoutes from "./routes/product.route.js";
 import cartRoutes from "./routes/cart.route.js";
 import couponRoutes from "./routes/coupon.route.js";
 import paymentRoutes from "./routes/payment.route.js";
-import { db } from "./db/db.js";
+import pingRoutes from "./routes/ping.route.js"
 import cookieParser from "cookie-parser";
+import { db } from "./db/db.js";
+import { setupSelfPing } from "./controllers/ping.controller.js";
 
 
 dotenv.config()
@@ -24,6 +26,7 @@ app.use('/api/products', productRoutes)
 app.use('/api/cart', cartRoutes)
 app.use('/api/coupons', couponRoutes)
 app.use('/api/payments', paymentRoutes)
+app.use('/api/ping', pingRoutes)
 
 if(process.env.NODE_ENV !== "development") {
     app.use(express.static(path.join(__dirname, "/frontend/dist")))
@@ -35,4 +38,5 @@ if(process.env.NODE_ENV !== "development") {
 app.listen(PORT, ()=>{
     console.log(`Server running in ${process.env.NODE_ENV}mode on port ${PORT}`)
     db()
+    setupSelfPing()
 })
