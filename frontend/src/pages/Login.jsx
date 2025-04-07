@@ -27,7 +27,10 @@ function Login() {
 				<h2 className='mt-6 text-center text-3xl font-extrabold text-emerald-400'>Login to your account</h2>
 			</motion.div>
 
-			<div
+			<motion.div
+			initial={{ opacity: 0, y: -20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.8 }}
 			className='bg-gray-800 py-3 shadow sm:rounded-lg sm:px-10 mt-8 sm:mx-auto sm:w-full sm:max-w-md flex flex-col text-sm font-medium text-gray-300 gap-5'			
 			>
 				<p className='text-center text-xl border-b-1'>
@@ -40,7 +43,7 @@ function Login() {
 						Password: 123456
 					</p>
 
-			</div>
+			</motion.div>
 
 			<motion.div
 				className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'
