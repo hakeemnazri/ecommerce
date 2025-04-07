@@ -27,13 +27,30 @@ function Login() {
 				<h2 className='mt-6 text-center text-3xl font-extrabold text-emerald-400'>Login to your account</h2>
 			</motion.div>
 
+			<div
+			className='bg-gray-800 py-3 shadow sm:rounded-lg sm:px-10 mt-8 sm:mx-auto sm:w-full sm:max-w-md flex flex-col text-sm font-medium text-gray-300 gap-5'			
+			>
+				<p className='text-center text-xl border-b-1'>
+					Demo Account
+				</p>
+					<p>
+						Email Address: user123@gmail.com
+					</p>
+					<p>
+						Password: 123456
+					</p>
+
+			</div>
+
 			<motion.div
 				className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8, delay: 0.2 }}
 			>
-				<div className='bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10'>
+				<div 
+				className='bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10'
+				>
 					<form onSubmit={handleSubmit} className='space-y-6'>
 						<div>
 							<label htmlFor='email' className='block text-sm font-medium text-gray-300'>
